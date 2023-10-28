@@ -1,0 +1,80 @@
+Name: Jakob West 
+Class: CS 2300-001 (M/W 12:15 PM – 1:30 PM) 
+Due: Friday, September 22, 2023 @ 11:59 PM 
+Assignment: Pseudocode - Programming Assignment #1
+
+Part 1 - Generating 4 Matrices: 
+	Number columns = first name (Jakob), number rows = last name (West) Mat1 & Mat2
+	Mat 1: 
+-	Columns first, rows second
+-	Output 
+1	5	9	13	17	
+2	6	10	14	18	
+3	7	11	15	19	
+4	8	12	16	20
+ 
+	Mat 2: 
+-	Rows first, columns second 
+-	Output  
+2	5	8	11	14
+17	20	23	26	29
+32	35	38	41	44
+47	50	53	56	59
+
+	Mat 3: 
+-	Given matrix
+-	Columns first, rows second
+-	Output  
+10	6	2	-2	
+8	4	0	-4	
+	Mat 4: 
+-	Given matrix
+-	Rows first, columns second
+-	Output  
+-6.0	-4.5
+-3.0	-1.5
+0.0	1.5
+3.0	4.5
+	
+	
+Part 2 - Adding Matrices: 
+-	Use double for loop for add matrices function 
+-	Check user input for mat1 and mat2
+-	Fill matrix A and B 
+-	Add matrices (A + B or B + A) 
+
+Part 3 – Multiplying Matrices:
+-	Use triple for loop for multiply matrices function 
+-	Check for user input mat3 and mat4
+-	Fill matrix C and D
+-	Multiply matrix C * D
+-	Multiply Matrix D * C
+
+
+Part 4 – Adding & multiplying matrices using numpy library
+-	Import numpy
+-	Fill matrices A, B, C, D
+-	Add matrices A and B using numpy functions
+-	Multiply matrices C and D using numpy functions 
+-	Multiply matrices D and C using numpy functions
+
+Part 5: - Finding all possible dot products and outputting to files
+-	Initialize matrices: r,s,u,v,w 
+-	Use single loop for 2x1 dot product function
+-	Prompt user for which matrices to perform dot product
+-	Cases: rs, ru, rv, rw, su, sv, sw, uv, uw, vw (10) 
+-	Output to respective files
+
+Part 6 - Transposing matrices from Part 1
+-	Use double for loop for transposing matrices function
+-	Create: mat1, mat2, mat3, and mat4 matrices 
+-	Transpose by calling function: mat1, mat2, mat3, mat4
+
+Part 7 - Finding the Dot Product & Transposing matrices using libraries
+-	Import numpy 
+-	Initialize matrices: r,s,u,v,w 
+-	Fill matrices A, B, C, and D using numpy
+-	Calculate dot product for the 10 following cases using numpy functions 
+rs, ru, rv, rw, su, sv, sw, uv, uw, vw (10)
+-	Transpose matrices: mat1, mat2, mat3, mat4, r, s, u, v, w using numpy functions
+

@@ -1,0 +1,149 @@
+Name: Jakob West 
+Class: CS 2300-001
+Date: Friday, October 27th @ 11:59 PM (Extension)
+Assignment: Pseudocode for Program 2 (done in Python) 
+
+
+Part A: Cryptography
+
+# Part A1: Background Concepts for Cryptography
+
+# Initialize the encoding matrix A
+A = [
+    [1, -1, -1, 1],
+    [2, -3, -5, 4],
+    [-2, -1, -2, 2],
+    [3, -3, -1, 2]
+]
+
+# Function to convert a character to its decimal equivalent
+function charToDecimal(character):
+    return DecimalValueOf(character)
+
+# Function to convert hexadecimal Unicode to decimal
+function hexToDecimal(hex):
+    tensDigit = hex[0]
+    onesDigit = hex[1]
+    return (tensDigit * 16) + onesDigit
+
+# Function to create matrix B from plaintext message
+function createMatrixB(plaintext):
+    # Initialize an empty matrix B
+    B = []
+    rowIndex = 0
+    columnIndex = 0
+    
+    # Iterate through each character in the plaintext
+    for character in plaintext:
+        decimalValue = charToDecimal(character)
+        # Append the decimal value to the current column
+        B[rowIndex][columnIndex] = decimalValue
+        columnIndex += 1
+        # If the column is full, move to the next column
+        if columnIndex == 4:
+            columnIndex = 0
+            rowIndex += 1
+
+    # Fill any remaining empty cells with zeros
+    while rowIndex < 4:
+        while columnIndex < 4:
+            B[rowIndex][columnIndex] = 0
+            columnIndex += 1
+        columnIndex = 0
+        rowIndex += 1
+
+    return B
+
+# Function to encrypt the message and generate matrix C
+function encryptMessage(plaintext, encodingMatrix):
+    # Create matrix B from plaintext
+    B = createMatrixB(plaintext)
+    
+    # Multiply encoding matrix A by matrix B to get C
+    C = matrixMultiplication(A, B)
+    
+    return C
+
+# Function to decode the message and generate plaintext
+function decryptMessage(C, decodingMatrix):
+    # Multiply decoding matrix A^(-1) by matrix C to get B
+    B = matrixMultiplication(decodingMatrix, C)
+
+    # Convert matrix B back to a sequence of decimal values
+    plaintext = ""
+    for row in B:
+        for value in row:
+            plaintext += decimalToChar(value)
+    
+    return plaintext
+
+# Input plaintext message from the user
+plaintextMessage = userInput()
+
+# Encrypt the message
+cipherMatrix = encryptMessage(plaintextMessage, A)
+
+# Display plaintext matrix B and cipher matrix C
+displayMatrix("Plaintext Matrix (B):", B)
+displayMatrix("Cipher Matrix (C):", C)
+
+# Decrypt the message
+decodingMatrix = findInverseOfMatrix(A)
+decryptedMessage = decryptMessage(C, decodingMatrix)
+
+# Display the decrypted plaintext
+display("Decrypted Message:", decryptedMessage)
+
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+Part B: Network/Traffic Flow
+
+# Part B2.1: Accept flow values as input
+flow1
+flow2
+flow3
+flow4
+
+# Part B2.2: Create augmented matrix and solve system of equations
+# Define the augmented matrix A based on the given constraints
+A = [
+    [1, 1, 0, 0, 625],
+    [1, 0, 0, 1, 475],
+    [0, 1, 1, 0, 1050],
+    [0, 0, 1, 1, 900]
+]
+
+# Perform Gauss-Jordan elimination to reduce A to reduced row-echelon form (RREF)
+RREF = gauss_jordan_elimination(A)
+
+# Extract the solutions from the RREF matrix
+x1 = RREF[0][4]
+x2 = RREF[1][4]
+x3 = RREF[2][4]
+x4 = RREF[3][4]
+
+# Output the results
+output("Traffic Flow Results:")
+output("Flow 1 =", x1)
+output("Flow 2 =", x2)
+output("Flow 3 =", x3)
+output("Flow 4 =", x4)
+
+# Define a function for Gauss-Jordan elimination
+function gauss_jordan_elimination(matrix):
+    # Implement Gauss-Jordan elimination logic here
+    # This function should transform the input matrix into RREF form
+    # and return the RREF matrix
+
+# Define a function for user input
+function user_input(prompt):
+    # Implement user input logic here
+    # This function should display the prompt and return the user's input
+
+# Define a function for output
+function output(message, value):
+    # Implement output logic here
+    # This function should display the given message and value to the user
+
+
